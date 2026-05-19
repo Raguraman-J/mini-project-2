@@ -163,7 +163,7 @@ const AdminDashboard = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    ${buildSubjectRows(theoritical, 'THEORY')}
+                    ${buildSubjectRows(theory, 'THEORY')}
                     ${buildSubjectRows(practical, 'PRACTICAL')}
                     ${buildSubjectRows(general, 'GENERAL')}
                     <tr>
