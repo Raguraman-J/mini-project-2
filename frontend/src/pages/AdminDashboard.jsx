@@ -163,7 +163,7 @@ const AdminDashboard = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    ${buildSubjectRows(theory, 'THEORY')}
+                    ${buildSubjectRows(theoritical, 'THEORY')}
                     ${buildSubjectRows(practical, 'PRACTICAL')}
                     ${buildSubjectRows(general, 'GENERAL')}
                     <tr>
@@ -1207,13 +1207,13 @@ const AdminDashboard = () => {
                                                 🔔 Periodic Class Alerts
                                             </h4>
                                             <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', marginBottom: '15px' }}>
-                                                Send proactive alerts to all faculty members who have classes in the upcoming period. 
+                                                Send proactive alerts to all faculty members who have classes in the upcoming period.
                                                 This will send an in-app notification and a mock SMS to their registered phone numbers.
                                             </p>
                                             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                                                 <div className="input-group" style={{ marginBottom: 0 }}>
-                                                    <select 
-                                                        className="input-field" 
+                                                    <select
+                                                        className="input-field"
                                                         style={{ padding: '8px' }}
                                                         value={forcePeriod}
                                                         onChange={(e) => setForcePeriod(e.target.value)}
@@ -1224,7 +1224,7 @@ const AdminDashboard = () => {
                                                         ))}
                                                     </select>
                                                 </div>
-                                                <button 
+                                                <button
                                                     className="btn btn-primary"
                                                     disabled={loading}
                                                     onClick={async () => {

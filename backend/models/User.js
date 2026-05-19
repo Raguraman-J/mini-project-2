@@ -22,7 +22,7 @@ const userSchema = mongoose.Schema({
     department: {
         type: String, // e.g., 'CSE', 'ECE'
     },
-    // Student-specific fields
+    // Student-specific field
     semester: {
         type: Number, // 1-8 (year of study)
         min: 1,
