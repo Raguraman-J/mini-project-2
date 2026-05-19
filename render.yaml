@@ -26,9 +26,8 @@ services:
   - type: web
     name: miniproject2-frontend
     env: static
-    plan: free
     buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: ./frontend/dist
+    publishPath: ./frontend/dist
     envVars:
       - key: VITE_API_URL
         fromService:
