@@ -1,0 +1,42 @@
+services:
+  # Backend Node.js Service (using Docker)
+  - type: web
+    name: miniproject2-backend
+    env: docker
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false # User must set this manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false # User must set this manually in Render dashboard
+      - key: EMAIL_USER
+        sync: false # User must set this manually in Render dashboard
+      - key: EMAIL_PASS
+        sync: false # User must set this manually in Render dashboard
+      - key: GROQ_API_KEY
+        sync: false # User must set this manually in Render dashboard
+
+  # Frontend React App (Static Site is best for React on Render)
+  - type: web
+    name: miniproject2-frontend
+    env: static
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: miniproject2-backend
+          envVarKey: RENDER_EXTERNAL_URL
+    # Rewrite rules to handle React Router (SPA)
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
